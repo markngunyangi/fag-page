@@ -1,0 +1,85 @@
+let undergrad = document.getElementById("undergrad");
+let esl = document.getElementById("esl");
+let noob = document.getElementById("noob");
+let undergrads = document.getElementsByClassName("undergrads");
+let esls = document.getElementsByClassName("esls");
+let noobs = document.getElementsByClassName("noobs");
+let list = document.getElementsByClassName("category_list__item");
+
+undergrad.addEventListener("click", () => {
+  for (let i = 0; i < list.length; i++) {
+    let classes = list[i].classList;
+    let result = classes.contains("undergrads");
+    if (result) {
+      list[i].classList.remove("invisible");
+      undergrad.classList.add("active");
+      esl.classList.remove("active");
+      noob.classList.remove("active");
+      if (undergrad.classList.contains("active")) {
+        esl.style.borderBottomLeftRadius = "7px";
+        esl.style.borderBottomRightRadius = "0";
+        undergrad.style.borderBottomRightRadius = "0";
+        noob.style.borderBottomLeftRadius = "0";
+        esl.style.borderRight = "solid black 1px";
+        esl.style.borderLeft = "solid black 0";
+      }
+    } else {
+      list[i].classList.add("invisible");
+    }
+  }
+})
+
+if (undergrad.classList.contains("active")) {
+  esl.style.borderBottomLeftRadius = "7px";
+  esl.style.borderBottomRightRadius = "0";
+  undergrad.style.borderBottomRightRadius = "0";
+  noob.style.borderBottomLeftRadius = "0";
+  esl.style.borderRight = "solid black 1px";
+  esl.style.borderLeft = "solid black 0";
+}
+
+esl.addEventListener("click", () => {
+  for (let i = 0; i < list.length; i++) {
+    let classes = list[i].classList;
+    let result = classes.contains("esls");
+    if (result) {
+      undergrad.classList.remove("active");
+      esl.classList.add("active");
+      noob.classList.remove("active");
+      list[i].classList.remove("invisible");
+      if (esl.classList.contains("active")) {
+        undergrad.style.borderBottomRightRadius = "7px";
+        esl.style.borderBottomrightRadius = "0";
+        noob.style.borderBottomLeftRadius = "7px";
+        esl.style.borderBottomLeftRadius = "0";
+        esl.style.borderRight = "solid black 0";
+        esl.style.borderLeft = "solid black 0";
+      }
+    } else {
+      list[i].classList.add("invisible");
+    }
+  }
+})
+
+noob.addEventListener("click", () => {
+  for (let i = 0; i < list.length; i++) {
+    let classes = list[i].classList;
+    let result = classes.contains("noobs");
+    if (result) {
+      undergrad.classList.remove("active");
+      esl.classList.remove("active");
+      noob.classList.add("active");
+      list[i].classList.remove("invisible");
+      if (noob.classList.contains("active")) {
+        esl.style.borderBottomRightRadius = "7px";
+        esl.style.borderBottomLeftRadius = "0";
+        undergrad.style.borderBottomRightRadius = "0";
+        noob.style.borderBottomLeftRadius = "0";
+        esl.style.borderLeft = "solid black 1px";
+        esl.style.borderRight = "solid black 0";
+      }
+    } else {
+      list[i].classList.add("invisible");
+    }
+  }
+})

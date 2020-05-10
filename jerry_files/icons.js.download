@@ -1,0 +1,39 @@
+let first = document.getElementById("first");
+let second = document.getElementById("second");
+let third = document.getElementById("third");
+let fourth = document.getElementById("fourth");
+let fifth = document.getElementById("fifth");
+let sixth = document.getElementById("sixth");
+let seventh = document.getElementById("seventh");
+let eigth = document.getElementById("eigth");
+
+let arr = [first, second, third, fourth, fifth, sixth, seventh, eigth];
+
+for (let j = 0; j < arr.length; j++) {
+    arr[j].addEventListener("mouseenter", () => {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== arr[j]) {
+                arr[i].classList.add("hide");
+            } else if (arr[i] == arr[j]) {
+                let x = arr[i].children;
+                x[1].classList.toggle("insidetext");
+                x[2].classList.toggle("insidetext");
+                arr[i].style.borderRadius = "5px";
+            }
+        }
+    })
+}
+
+for (let j = 0; j < arr.length; j++) {
+    arr[j].addEventListener("mouseleave", () => {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== arr[j]) {
+                arr[i].classList.remove("hide");
+            } else if (arr[i] == arr[j]) {
+                let x = arr[i].children;
+                x[1].classList.toggle("insidetext");
+                x[2].classList.toggle("insidetext");
+            }
+        }
+    })
+}
